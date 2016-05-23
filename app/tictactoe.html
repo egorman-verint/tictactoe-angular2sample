@@ -1,0 +1,18 @@
+<p [hidden]="announcement!=''">Player {{turn}} to make the move</p>
+<p [hidden]="!announcement">{{announcement}}!</p>
+<hr>
+
+<table>
+  <tr *ngFor="#gridRow of gridText;#row=index">
+    <td *ngFor="#gridCell of gridRow;#col=index" (click)="onSelect(row, col)" class="markertext, tictactoe">
+      <span [class.red]="gridCell == 'X'" [class.blue]="gridCell == 'O'">
+        {{gridCell}}
+      </span>
+    </td>
+  </tr>
+</table>
+
+<hr>
+<button (click)="resetGame()"> Start a new game </button>
+
+
